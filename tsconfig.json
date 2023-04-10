@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "dist",
-    "target": "esnext",
+    "target": "ES2015",
     "moduleResolution": "node"
   },
   "include": ["src/**/*"]
