@@ -1,13 +1,13 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
+import type { Request, Response } from "express";
 
-interface CustomNextApiRequest extends NextApiRequest {
+interface CustomNextApiRequest extends Request {
   method: string;
 }
 
-interface CustomNextApiResponse extends NextApiResponse {}
+interface CustomNextApiResponse extends Response {}
 
 export function allowMethods(methods: string[]) {
-  return (handler: NextApiHandler) =>
+  return (handler: any) =>
     (req: CustomNextApiRequest, res: CustomNextApiResponse) => {
       if (!methods.includes(req.method)) {
         res.status(405).json({
